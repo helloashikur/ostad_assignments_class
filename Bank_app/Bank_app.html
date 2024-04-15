@@ -2,80 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width= , initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bank App </title>
 </head>
 <body>
-    <script>
-        class BankAccount {
-    constructor(name, balance = 0) {
-        this.name = name;
-        this.balance = balance;
-    }
-
-    deposit(amount) {
-        if (amount > 0) {
-            this.balance += amount;
-            console.log(`Deposit of $${amount} successful. Current balance: $${this.balance}`);
-        } else {
-            console.log("Invalid amount for deposit.");
-        }
-    }
-
-    withdraw(amount) {
-        if (0 < amount && amount <= this.balance) {
-            this.balance -= amount;
-            console.log(`Withdrawal of $${amount} successful. Current balance: $${this.balance}`);
-        } else {
-            console.log("Insufficient funds or invalid amount for withdrawal.");
-        }
-    }
-
-    displayBalance() {
-        console.log(`Account Holder: ${this.name}`);
-        console.log(`Current Balance: $${this.balance}`);
-    }
-}
-
-function main() {
-    console.log("Welcome to the Bank Account Management System");
-
-    const accountName = prompt("Enter your name:");
-    const initialBalance = parseFloat(prompt("Enter initial balance:"));
-    const account = new BankAccount(accountName, initialBalance);
-
-    while (true) {
-        console.log("\nChoose an option:");
-        console.log("1. Deposit");
-        console.log("2. Withdraw");
-        console.log("3. Display Balance");
-        console.log("4. Exit");
-
-        const choice = prompt("Enter your choice (1/2/3/4):");
-
-        switch (choice) {
-            case "1":
-                const depositAmount = parseFloat(prompt("Enter the amount to deposit:"));
-                account.deposit(depositAmount);
-                break;
-            case "2":
-                const withdrawAmount = parseFloat(prompt("Enter the amount to withdraw:"));
-                account.withdraw(withdrawAmount);
-                break;
-            case "3":
-                account.displayBalance();
-                break;
-            case "4":
-                console.log("Thank you for using the Bank Account Management System.");
-                return;
-            default:
-                console.log("Invalid choice. Please choose again.");
-        }
-    }
-}
-
-main();
-
-    </script>
+    
 </body>
 </html>
