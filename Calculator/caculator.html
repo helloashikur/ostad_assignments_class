@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .calculator {
+      max-width: 400px;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container calculator">
+    <h2 class="text-center mb-4">Simple Calculator</h2>
+    <div class="form-group">
+      <label for="num1">Enter first number:</label>
+      <input type="number" class="form-control" id="num1">
+    </div>
+    <div class="form-group">
+      <label for="num2">Enter second number:</label>
+      <input type="number" class="form-control" id="num2">
+    </div>
+    <div class="form-group">
+      <label for="operation">Select operation:</label>
+      <select class="form-control" id="operation">
+        <option value="addition">Addition (+)</option>
+        <option value="subtraction">Subtraction (-)</option>
+        <option value="multiplication">Multiplication (*)</option>
+        <option value="division">Division (/)</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculate</button>
+    <div class="mt-4">
+      <h4>Result:</h4>
+      <p id="result"></p>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function calculate() {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var operation = document.getElementById('operation').value;
+      var result;
+      
+      switch (operation) {
+        case 'addition':
+          result = num1 + num2;
+          break;
+        case 'subtraction':
+          result = num1 - num2;
+          break;
+        case 'multiplication':
+          result = num1 * num2;
+          break;
+        case 'division':
+          if (num2 !== 0) {
+            result = num1 / num2;
+          } else {
+            result = 'Cannot divide by zero';
+          }
+          break;
+        default:
+          result = 'Invalid operation';
+      }
+      
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
